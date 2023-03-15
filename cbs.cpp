@@ -33,7 +33,9 @@ int main()
             case '3':  // 管理员
                 break;
             case '0':  // 退出
-                break;
+                cout << "欢迎下一次使用" << endl;
+                system("pause");
+                return 0;
             default:
                 cout << "输入有误, 请重新选择!" << endl;
                 system("pause");
