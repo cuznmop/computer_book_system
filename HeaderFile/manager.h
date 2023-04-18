@@ -13,7 +13,7 @@ public:
     Manager(string name, string pwd);
 
     // 菜单界面
-    virtual void operMenu();
+    void operMenu();
     
     // 添加账号
     void addPerson();

@@ -10,7 +10,7 @@ public:
 
     Teacher(int empId, string name, string pwd);
 
-    virtual void operMenu();
+    void operMenu();
 
     void showAllOrder();
 

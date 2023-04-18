@@ -15,7 +15,7 @@ public:
     // 有参构造
     Student(int id, string name, string pwd);
     // 菜单界面
-    virtual void operMenu() = 0;
+    void operMenu();
 
     // 申请预约
     void applyOrder();

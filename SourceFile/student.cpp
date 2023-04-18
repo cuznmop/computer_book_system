@@ -9,7 +9,7 @@ Student::Student()
 // 有参构造
 Student::Student(int id, string name, string pwd)
 {
-
+    // printf("%d", 666);
 }
 
 // 菜单界面
