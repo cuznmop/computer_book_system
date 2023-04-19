@@ -10,7 +10,9 @@ Manager::Manager()
 // 有参构造
 Manager::Manager(string name, string pwd)
 {
-
+    // 初始化管理员信息
+    this->m_Name = name;
+    this->m_Pwd = pwd;
 }
 
 // 菜单界面

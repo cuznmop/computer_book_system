@@ -7,6 +7,18 @@ using namespace std;
 #include "teacher.h"
 #include "manager.h"
 
+void managerMenu(Identity * &manager)
+{
+    while(true)
+    {
+        // 多态, 父类指针创建子类对象, 调用共同的接口
+        manager->operMenu();  
+
+        // 将父类指针 转为子类指针, 调用子类里其他接口
+        Manager * man = (Manager*)manager; // 强转
+    }
+}
+
 // 登录功能
 void LoginIn(string fileName, int type)
 {
