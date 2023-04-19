@@ -64,24 +64,54 @@ void LoginIn(string fileName, int type)
                 system("pause");
                 system("cls");
                 person = new Student(id, name, pwd);
-                // Student(id, name, pwd);
                 // 进入学生身份的子菜单
 
                 return;
             }
         }
-
-
     }
     else if(type == 2)
     {
-        // cout << "请输入您的职工号: " << endl;
-        // cin >> id;
+        // 老师身份验证
+        int fId;  // 从文件中读取的id号
+        string fName;  // 从文件中获取的姓名
+        string fPwd;  // 从文件中获取的密码
+        while(ifs>>fId && ifs >> fName && ifs >>fPwd)  // 读到空格结束
+        {
+            //  cout << fId << endl;
+            //  cout << fName << endl;
+            //  cout << fPwd << endl;
+            //  cout << endl;
+            if ((fId == id) && (fName == name) && (fPwd == pwd))
+            {
+                cout << "老师验证登录成功! " << endl;
+                system("pause");
+                system("cls");
+                person = new Teacher(id, name, pwd);
+                // 进入学生身份的子菜单
+
+                return;
+            }
+        }
     }
     else if(type == 3)
     {
-        // cout << "请输入您的职工号: " << endl;
-        // cin >> id;
+        // 管理员身份验证
+        string fName;  // 从文件中获取的姓名
+        string fPwd;  // 从文件中获取的密码
+        while(ifs >> fName >>fPwd)  // 读到空格结束
+        {
+            if ((fName == name) && (fPwd == pwd))
+            {
+                cout << "管理员验证登录成功! " << endl;
+                system("pause");
+                system("cls");
+                person = new Manager(name, pwd);
+                // 进入管理员身份的子菜单
+
+                return;
+            }
+        }
     }
     cout << "验证登录失败" << endl;
     system("pause");
