@@ -3,6 +3,8 @@
 using namespace std;
 #include "identity.h"
 #include <string>
+#include <fstream>
+#include "globalFile.h"
 
 class Manager:public Identity
 {
