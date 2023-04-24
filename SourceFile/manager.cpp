@@ -16,6 +16,17 @@ Manager::Manager(string name, string pwd)
 
     // 初始化容器 获取到所有文件中 学生/老师信息
     this->initVector();
+
+    // 初始化机房的信息
+    ifstream ifs;
+    ifs.open(COMPUTER_FILE, ios::in);
+    ComputerRoom com;
+    while(ifs >> com.m_ComId && ifs >> com.m_MaxNum)
+    {
+        vCom.push_back(com);        
+    }
+    ifs.close();
+    cout << "机房数量为: " << vCom.size() << endl;
 }
 
 // 菜单界面
@@ -111,16 +122,55 @@ void Manager::addPerson()
     this->initVector();
 }
 
+void printStudent(Student & s)
+{
+    cout << "学号: " << s.m_Id << " 姓名: " << s.m_Name << " 密码: " << s.m_Pwd << endl;
+}
+
+void printTeacher(Teacher & s)
+{
+    cout << "工号: " << s.m_EmpId << " 姓名: " << s.m_Name << " 密码: " << s.m_Pwd << endl;
+}
+
 // 查看账号
 void Manager::showPerson()
 {
+    cout << "请选择查看的内容: " << endl;
+    cout << "1. 查看所有学生" << endl;
+    cout << "2. 查看所有老师" << endl;
 
+    int select = 0;
+    cin >> select;
+
+    if(select == 1)
+    {
+        // 查看学生
+        cout << "所有的学生信息如下: " << endl;
+        for_each(vStu.begin(), vStu.end(), printStudent);
+    }
+    else
+    {
+        // 查看学生
+        cout << "所有的老师信息如下: " << endl;
+        for_each(vTea.begin(), vTea.end(), printTeacher);
+    }
+
+    system("pause");
+    system("cls");
 }
 
 // 查看机房信息
 void Manager::showComputer()
 {
-    
+    cout << "机房的信息如下: " << endl;
+
+    for(vector<ComputerRoom>::iterator it = vCom.begin(); it != vCom.end(); it++)
+    {
+        cout << "机房编号: " << it->m_ComId << " 机房最大容量: " << it->m_MaxNum << endl;
+    }
+    system("pause");
+    system("cls");
+
 }
 
 // 清空预约记录
