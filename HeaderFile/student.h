@@ -3,6 +3,7 @@
 using namespace std;
 
 #include "Identity.h"
+#include <string>
 
 
 // 学生类
@@ -19,6 +20,8 @@ public:
 
     // 申请预约
     void applyOrder();
+    // 查看自身预约
+    void showMyOrder();
     // 查看自身预约
     void showAllOrder();
     // 取消预约

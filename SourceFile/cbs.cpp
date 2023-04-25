@@ -7,6 +7,50 @@ using namespace std;
 #include "teacher.h"
 #include "manager.h"
 
+/// @brief 进入学生子菜单界面
+/// @param student Identity*是个数据类型，就像int一样；&就是引用，int &，把int看成Identity* 就行
+void studentMenu(Identity *&student)
+{
+    while (true)
+    {
+        //调用学生子菜单, 多态的原理
+        student->operMenu();
+        // 再转成student*, 因为只有子类指针才能调用子类特有的功能
+        Student * stu = (Student *)student;
+
+        int select = 0;
+        cin >> select; // 接受用户选择
+
+        if (select == 1)  // 申请预约
+        {
+            stu->applyOrder();
+        }
+        else if (select == 2)  // 查看自身预约
+        {
+            stu->showMyOrder();
+        }
+        else if (select == 3)  // 查看所有人预约
+        {
+            stu->showAllOrder();
+        }
+        else if (select == 4)  // 取消预约
+        {
+            stu->cancelOrder();
+        }
+        else  // 注销登录
+        {
+            delete student;
+            cout << "注销成功"  << endl;
+
+            system("pause");
+            system("cls");
+
+            return;
+        }
+    }
+}
+
+// 进入管理员子菜单界面
 void managerMenu(Identity *&manager)
 {
     while (true)
@@ -111,7 +155,7 @@ void LoginIn(string fileName, int type)
                 system("cls");
                 person = new Student(id, name, pwd);
                 // 进入学生身份的子菜单
-
+                studentMenu(person);
                 return;
             }
         }
