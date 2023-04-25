@@ -176,7 +176,12 @@ void Manager::showComputer()
 // 清空预约记录
 void Manager::cleanFile()
 {
+    ofstream ofs(ORDER_FILE, ios::trunc);  // 文件存在则清空
+    ofs.close();
 
+    cout << "清空成功!" << endl;
+    system("pause");
+    system("cls");
 }
 
 // 读取学生文件中信息
