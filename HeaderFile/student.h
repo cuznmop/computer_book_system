@@ -8,6 +8,7 @@ using namespace std;
 #include "computerRoom.h"
 #include <fstream>
 #include "globalFile.h"
+#include "orderFile.h"
 
 // 学生类
 class Student : public Identity

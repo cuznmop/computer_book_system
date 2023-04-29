@@ -122,7 +122,7 @@ void Student::applyOrder()
 // 申请预约
 void Student::showMyOrder()
 {
-
+    OrderFile of;
 }
 
 // 查看自身预约
