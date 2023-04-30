@@ -112,7 +112,7 @@ void LoginIn(string fileName, int type)
         cout << "文件不存在" << endl;
         ifs.close();
         return;
-    }
+    } 
 
     int id = 0;
     string name;
