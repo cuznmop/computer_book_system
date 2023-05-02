@@ -103,6 +103,7 @@ void OrderFile::updateOrder()
     }
 
     ofstream ofs(ORDER_FILE, ios::out | ios::trunc);
+    // cout << "program in OrderFile" << endl;
     for(int i = 0; i<this->m_Size; i++)
     {
         ofs << "date:" << this->m_orderData[i]["date"] << " ";
@@ -111,5 +112,6 @@ void OrderFile::updateOrder()
         ofs << "stuName:" << this->m_orderData[i]["stuName"] << " ";
         ofs << "roomId:" << this->m_orderData[i]["roomId"] << " ";
         ofs << "status:" << this->m_orderData[i]["status"] << endl;
+        // cout << "status:" << this->m_orderData[i]["status"] << endl;
     }
 }
