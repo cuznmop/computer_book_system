@@ -4,6 +4,7 @@
 using namespace std;
 #include <string>
 #include "orderFile.h"
+#include <vector>
 
 class Teacher : public Identity
 {
