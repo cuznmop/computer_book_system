@@ -50,6 +50,41 @@ void studentMenu(Identity *&student)
     }
 }
 
+/// @brief 进入教师子菜单界面
+/// @param teacher Identity*是个数据类型，就像int一样；&就是引用，int &，把int看成Identity* 就行
+void teacherMenu(Identity *&teacher)
+{
+    while (true)
+    {
+        //调用学生子菜单, 多态的原理
+        teacher->operMenu();
+        // 再转成student*, 因为只有子类指针才能调用子类特有的功能
+        Teacher * tea = (Teacher *)teacher;
+
+        int select = 0;
+        cin >> select; // 接受用户选择
+
+        if (select == 1)  // 查看所有的预约
+        {
+            tea->showAllOrder();
+        }
+        else if (select == 2)  // 审核预约
+        {
+            tea->validOrder();
+        }
+        else  // 注销登录
+        {
+            delete teacher;
+            cout << "注销成功"  << endl;
+
+            system("pause");
+            system("cls");
+
+            return;
+        }
+    }
+}
+
 // 进入管理员子菜单界面
 void managerMenu(Identity *&manager)
 {
@@ -178,8 +213,8 @@ void LoginIn(string fileName, int type)
                 system("pause");
                 system("cls");
                 person = new Teacher(id, name, pwd);
-                // 进入学生身份的子菜单
-
+                // 进入教师身份的子菜单
+                teacherMenu(person);
                 return;
             }
         }

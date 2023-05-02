@@ -2,6 +2,8 @@
 #include <iostream>
 #include "identity.h"
 using namespace std;
+#include <string>
+#include "orderFile.h"
 
 class Teacher : public Identity
 {
